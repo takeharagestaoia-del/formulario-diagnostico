@@ -1,108 +1,797 @@
-TG
-Takehara Gestão IA
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagnóstico Empresarial | Takehara Gestão IA</title>
+  <style>
+    :root {
+      --green: #4f5d45;
+      --green-dark: #263022;
+      --green-soft: #eef3ec;
+      --charcoal: #242829;
+      --black: #0d0f0f;
+      --white: #ffffff;
+      --line: #d7ded4;
+      --soft: #f6f8f5;
+      --muted: #626b65;
+      --gold: #b49a62;
+      --danger: #9d3b31;
+      --shadow: 0 22px 55px rgba(13, 15, 15, 0.11);
+    }
 
-Diagnóstico, processos e crescimento empresarial
+    * {
+      box-sizing: border-box;
+    }
 
-Respostas direcionadas para análise consultiva
-Diagnóstico empresarial
+    body {
+      margin: 0;
+      color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+      background:
+        linear-gradient(180deg, rgba(38, 48, 34, 0.94) 0 330px, #eef1eb 330px 100%);
+    }
 
-Entenda onde sua empresa trava e quais processos precisam evoluir primeiro.
-Este questionário ajuda a identificar gargalos operacionais, prioridades de gestão e oportunidades reais para estruturar ferramentas, mentorias e rotinas mais eficientes.
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 28px auto 40px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
 
-Por que responder?
+    header {
+      position: relative;
+      padding: 34px clamp(22px, 5vw, 56px) 30px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(38, 48, 34, 0.98), rgba(79, 93, 69, 0.92));
+      border-bottom: 5px solid var(--gold);
+    }
 
-✓
-Análise direcionada para o momento atual da empresa.
-✓
-Perguntas objetivas, sem exposição pública das respostas.
-✓
-Base para propor soluções práticas de gestão e tecnologia.
-Um diagnóstico curto para decisões mais claras.
-Responda com sinceridade. As informações serão usadas para compreender o cenário da empresa e indicar caminhos mais objetivos para melhorar rotina, operação, equipe, vendas e controle.
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 34px;
+    }
 
-1
-Leva poucos minutos para responder.
-2
-As respostas são enviadas diretamente para a equipe responsável.
-3
-Você pode revisar tudo antes de enviar.
-1
-Perfil da Empresa
-Contexto básico para entender o porte e o mercado de atuação.
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-Qual o segmento de atuação da sua empresa?
-Qual o tamanho atual da sua equipe?
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #f4efe2;
+      font-weight: 800;
+    }
 
-1 a 5 colaboradores
+    .brand-name {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
 
-6 a 20 colaboradores
+    .brand-detail {
+      margin: 1px 0 0;
+      color: #dfe8dc;
+      font-size: 0.86rem;
+    }
 
-Mais de 20 colaboradores
-2
-Principais Dores e Desafios
-Aqui identificamos o ponto que mais consome tempo, dinheiro ou energia.
+    .secure-note {
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #edf3ea;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      background: rgba(13, 15, 15, 0.16);
+    }
 
-Hoje, qual é o seu maior gargalo operacional?
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: clamp(22px, 5vw, 54px);
+      align-items: end;
+    }
 
-Falta de processos claros e padronizados
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #f3ead6;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
 
-Gestão de estoque ou relacionamento com fornecedores
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
 
-Dificuldade em contratar ou treinar funcionários
+    .subtitle {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: #eef4ec;
+      font-size: clamp(1rem, 2vw, 1.14rem);
+    }
 
-Controle financeiro e fluxo de caixa
+    .trust-panel {
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-Vendas estagnadas ou marketing pouco efetivo
-Se houvesse uma solução mágica para um problema hoje, o que ela resolveria?
-3
-Gestão e Tempo
-O objetivo é entender se a operação depende demais da liderança.
+    .trust-title {
+      margin: 0 0 12px;
+      color: #ffffff;
+      font-weight: 800;
+    }
 
-Como é dividida a sua rotina diária?
+    .trust-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #eef4ec;
+      font-size: 0.94rem;
+    }
 
-Foco total no Operacional (90% do tempo)
+    .trust-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
 
-Equilibrado entre Operacional e Gestão (50/50)
+    .check {
+      display: inline-grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      flex: 0 0 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
 
-Foco em Estratégia e Crescimento (90% do tempo)
-A empresa funciona sem a sua presença constante?
+    main {
+      padding: clamp(22px, 5vw, 56px);
+    }
 
-Não, tudo depende da minha decisão
+    .intro-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+      gap: 24px;
+      align-items: start;
+      padding-bottom: 34px;
+      border-bottom: 1px solid var(--line);
+    }
 
-Funciona, mas com muitas falhas e erros
+    .intro-copy h2 {
+      margin: 0 0 10px;
+      color: var(--charcoal);
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
 
-Sim, os processos e a equipe são autônomos
-4
-Ferramentas e Tecnologia
-Mapeamento da maturidade digital e das ferramentas que podem gerar alívio rápido.
+    .intro-copy p {
+      margin: 0;
+      max-width: 720px;
+      color: var(--muted);
+    }
 
-Como os dados do negócio são gerenciados atualmente?
+    .meta-box {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
 
-Papel, agendas ou cadernos
+    .meta-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--charcoal);
+      font-size: 0.92rem;
+    }
 
-Planilhas (Excel / Sheets)
+    .meta-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      flex: 0 0 26px;
+      border-radius: 6px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-weight: 800;
+    }
 
-Sistema de Gestão / ERP
-Que tipo de ferramenta facilitaria a sua vida agora? (Ex: App de estoque, controle de projetos)
-5
-Expectativas
-Para alinhar a recomendação ao resultado que mais importa agora.
+    .section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--line);
+    }
 
-O que te impede de profissionalizar esses processos hoje?
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 22px;
+    }
 
-Falta de tempo
+    .section-number {
+      display: inline-grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      border-radius: 8px;
+      background: var(--green-dark);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.96rem;
+    }
 
-Falta de conhecimento sobre como fazer
+    h3 {
+      margin: 0;
+      color: var(--charcoal);
+      font-size: 1.2rem;
+      letter-spacing: 0;
+    }
 
-Investimento financeiro necessário
-Em uma mentoria, qual seria o seu objetivo número 1?
+    .section-note {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
 
-Aumentar o faturamento e vendas
+    .field {
+      margin: 0 0 24px;
+    }
 
-Organizar a casa (processos e rotina)
+    .field:last-child {
+      margin-bottom: 0;
+    }
 
-Melhorar a gestão de pessoas e liderança
-Ao enviar, suas respostas serão encaminhadas para a equipe Takehara Gestão IA com a finalidade de análise empresarial. Nenhuma resposta é exibida publicamente.
+    label.question {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--charcoal);
+      font-weight: 800;
+    }
 
-Resumo de resposta
-Envio de respostas
+    input[type="text"],
+    textarea {
+      width: 100%;
+      border: 1px solid #c7d0c3;
+      border-radius: 7px;
+      background: var(--white);
+      color: var(--black);
+      font: inherit;
+      padding: 14px 15px;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: var(--green);
+      background: #fbfcfa;
+      box-shadow: 0 0 0 3px rgba(79, 93, 69, 0.16);
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 13px 14px;
+      border: 1px solid #d9dfd6;
+      border-radius: 7px;
+      background: var(--soft);
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .option:hover {
+      border-color: #aab8a4;
+      background: #fbfcfa;
+      transform: translateY(-1px);
+    }
+
+    .option input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--green);
+      flex: 0 0 auto;
+    }
+
+    .privacy-note {
+      margin: 24px 0 0;
+      padding: 16px 18px;
+      border: 1px solid #ccd6c7;
+      border-radius: 8px;
+      background: #fbfcfa;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 28px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 7px;
+      padding: 14px 20px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--green);
+      background: var(--white);
+      color: var(--charcoal);
+    }
+
+    .btn-secondary:hover {
+      background: var(--green-soft);
+    }
+
+    .btn-primary {
+      background: var(--green-dark);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(38, 48, 34, 0.22);
+    }
+
+    .btn-primary:hover {
+      background: var(--green);
+    }
+
+    .notice {
+      display: none;
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      border-left: 4px solid var(--danger);
+      border-radius: 4px;
+      background: #fbf4f2;
+      color: #4a221e;
+      font-weight: 800;
+    }
+
+    .summary {
+      display: none;
+      margin-top: 28px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fafbf9;
+    }
+
+    .summary h2 {
+      margin: 0 0 14px;
+      color: var(--charcoal);
+      font-size: 1.22rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary-item {
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e5e9e2;
+    }
+
+    .summary-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .summary-question {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .summary-answer {
+      margin: 0;
+      color: var(--black);
+      white-space: pre-wrap;
+    }
+
+    .success-screen {
+      display: none;
+      min-height: 100vh;
+      padding: clamp(28px, 8vw, 82px);
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(38, 48, 34, 0.96), rgba(79, 93, 69, 0.92));
+      color: var(--white);
+    }
+
+    .success-box {
+      max-width: 620px;
+      padding: 42px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .success-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 74px;
+      height: 74px;
+      margin-bottom: 24px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 2.1rem;
+      font-weight: 800;
+    }
+
+    .success-box h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      color: var(--white);
+    }
+
+    .success-box p {
+      margin: 0;
+      color: #edf4eb;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background: #eef1eb;
+      }
+
+      .page {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .brand-row,
+      .hero-grid,
+      .intro-band {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-row {
+        align-items: flex-start;
+      }
+
+      .secure-note {
+        white-space: normal;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="formPage">
+    <header>
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark">TG</div>
+          <div>
+            <p class="brand-name">Takehara Gestão IA</p>
+            <p class="brand-detail">Diagnóstico, processos e crescimento empresarial</p>
+          </div>
+        </div>
+        <div class="secure-note">Respostas direcionadas para análise consultiva</div>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Diagnóstico empresarial</p>
+          <h1>Entenda onde sua empresa trava e quais processos precisam evoluir primeiro.</h1>
+          <p class="subtitle">Este questionário ajuda a identificar gargalos operacionais, prioridades de gestão e oportunidades reais para estruturar ferramentas, mentorias e rotinas mais eficientes.</p>
+        </div>
+
+        <aside class="trust-panel" aria-label="Informações de confiança">
+          <p class="trust-title">Por que responder?</p>
+          <ul class="trust-list">
+            <li><span class="check">✓</span><span>Análise direcionada para o momento atual da empresa.</span></li>
+            <li><span class="check">✓</span><span>Perguntas objetivas, sem exposição pública das respostas.</span></li>
+            <li><span class="check">✓</span><span>Base para propor soluções práticas de gestão e tecnologia.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro-band">
+        <div class="intro-copy">
+          <h2>Um diagnóstico curto para decisões mais claras.</h2>
+          <p>Responda com sinceridade. As informações serão usadas para compreender o cenário da empresa e indicar caminhos mais objetivos para melhorar rotina, operação, equipe, vendas e controle.</p>
+        </div>
+
+        <div class="meta-box" aria-label="Detalhes do formulário">
+          <div class="meta-item"><span class="meta-icon">1</span><span>Leva poucos minutos para responder.</span></div>
+          <div class="meta-item"><span class="meta-icon">2</span><span>As respostas são enviadas diretamente para a equipe responsável.</span></div>
+          <div class="meta-item"><span class="meta-icon">3</span><span>Você pode revisar tudo antes de enviar.</span></div>
+        </div>
+      </section>
+
+      <form id="diagnosticForm" action="https://formsubmit.co/takeharagestaoia@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Respostas - Questionário de Diagnóstico Empresarial">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://takeharagestaoia-del.github.io/formulario-diagnostico/?enviado=1">
+        <input type="text" name="_honey" style="display:none">
+
+        <section class="section">
+          <div class="section-title">
+            <span class="section-number">1</span>
+            <div>
+              <h3>Perfil da Empresa</h3>
+              <p class="section-note">Contexto básico para entender o porte e o mercado de atuação.</p>
+            </div>
+          </div>
+
+          <div class="field" data-question="Qual o segmento de atuação da sua empresa?">
+            <label class="question" for="segmento">Qual o segmento de atuação da sua empresa?</label>
+            <input type="text" id="segmento" name="Qual o segmento de atuação da sua empresa?" required>
+          </div>
+
+          <div class="field" data-question="Qual o tamanho atual da sua equipe?">
+            <label class="question">Qual o tamanho atual da sua equipe?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="Qual o tamanho atual da sua equipe?" value="1 a 5 colaboradores" required> <span>1 a 5 colaboradores</span></label>
+              <label class="option"><input type="radio" name="Qual o tamanho atual da sua equipe?" value="6 a 20 colaboradores"> <span>6 a 20 colaboradores</span></label>
+              <label class="option"><input type="radio" name="Qual o tamanho atual da sua equipe?" value="Mais de 20 colaboradores"> <span>Mais de 20 colaboradores</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <span class="section-number">2</span>
+            <div>
+              <h3>Principais Dores e Desafios</h3>
+              <p class="section-note">Aqui identificamos o ponto que mais consome tempo, dinheiro ou energia.</p>
+            </div>
+          </div>
+
+          <div class="field" data-question="Hoje, qual é o seu maior gargalo operacional?">
+            <label class="question">Hoje, qual é o seu maior gargalo operacional?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="Hoje, qual é o seu maior gargalo operacional?" value="Falta de processos claros e padronizados" required> <span>Falta de processos claros e padronizados</span></label>
+              <label class="option"><input type="radio" name="Hoje, qual é o seu maior gargalo operacional?" value="Gestão de estoque ou relacionamento com fornecedores"> <span>Gestão de estoque ou relacionamento com fornecedores</span></label>
+              <label class="option"><input type="radio" name="Hoje, qual é o seu maior gargalo operacional?" value="Dificuldade em contratar ou treinar funcionários"> <span>Dificuldade em contratar ou treinar funcionários</span></label>
+              <label class="option"><input type="radio" name="Hoje, qual é o seu maior gargalo operacional?" value="Controle financeiro e fluxo de caixa"> <span>Controle financeiro e fluxo de caixa</span></label>
+              <label class="option"><input type="radio" name="Hoje, qual é o seu maior gargalo operacional?" value="Vendas estagnadas ou marketing pouco efetivo"> <span>Vendas estagnadas ou marketing pouco efetivo</span></label>
+            </div>
+          </div>
+
+          <div class="field" data-question="Se houvesse uma solução mágica para um problema hoje, o que ela resolveria?">
+            <label class="question" for="solucao">Se houvesse uma solução mágica para um problema hoje, o que ela resolveria?</label>
+            <textarea id="solucao" name="Se houvesse uma solução mágica para um problema hoje, o que ela resolveria?" required></textarea>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <span class="section-number">3</span>
+            <div>
+              <h3>Gestão e Tempo</h3>
+              <p class="section-note">O objetivo é entender se a operação depende demais da liderança.</p>
+            </div>
+          </div>
+
+          <div class="field" data-question="Como é dividida a sua rotina diária?">
+            <label class="question">Como é dividida a sua rotina diária?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="Como é dividida a sua rotina diária?" value="Foco total no Operacional (90% do tempo)" required> <span>Foco total no Operacional (90% do tempo)</span></label>
+              <label class="option"><input type="radio" name="Como é dividida a sua rotina diária?" value="Equilibrado entre Operacional e Gestão (50/50)"> <span>Equilibrado entre Operacional e Gestão (50/50)</span></label>
+              <label class="option"><input type="radio" name="Como é dividida a sua rotina diária?" value="Foco em Estratégia e Crescimento (90% do tempo)"> <span>Foco em Estratégia e Crescimento (90% do tempo)</span></label>
+            </div>
+          </div>
+
+          <div class="field" data-question="A empresa funciona sem a sua presença constante?">
+            <label class="question">A empresa funciona sem a sua presença constante?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="A empresa funciona sem a sua presença constante?" value="Não, tudo depende da minha decisão" required> <span>Não, tudo depende da minha decisão</span></label>
+              <label class="option"><input type="radio" name="A empresa funciona sem a sua presença constante?" value="Funciona, mas com muitas falhas e erros"> <span>Funciona, mas com muitas falhas e erros</span></label>
+              <label class="option"><input type="radio" name="A empresa funciona sem a sua presença constante?" value="Sim, os processos e a equipe são autônomos"> <span>Sim, os processos e a equipe são autônomos</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <span class="section-number">4</span>
+            <div>
+              <h3>Ferramentas e Tecnologia</h3>
+              <p class="section-note">Mapeamento da maturidade digital e das ferramentas que podem gerar alívio rápido.</p>
+            </div>
+          </div>
+
+          <div class="field" data-question="Como os dados do negócio são gerenciados atualmente?">
+            <label class="question">Como os dados do negócio são gerenciados atualmente?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="Como os dados do negócio são gerenciados atualmente?" value="Papel, agendas ou cadernos" required> <span>Papel, agendas ou cadernos</span></label>
+              <label class="option"><input type="radio" name="Como os dados do negócio são gerenciados atualmente?" value="Planilhas (Excel / Sheets)"> <span>Planilhas (Excel / Sheets)</span></label>
+              <label class="option"><input type="radio" name="Como os dados do negócio são gerenciados atualmente?" value="Sistema de Gestão / ERP"> <span>Sistema de Gestão / ERP</span></label>
+            </div>
+          </div>
+
+          <div class="field" data-question="Que tipo de ferramenta facilitaria a sua vida agora? (Ex: App de estoque, controle de projetos)">
+            <label class="question" for="ferramenta">Que tipo de ferramenta facilitaria a sua vida agora? (Ex: App de estoque, controle de projetos)</label>
+            <textarea id="ferramenta" name="Que tipo de ferramenta facilitaria a sua vida agora? (Ex: App de estoque, controle de projetos)" required></textarea>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <span class="section-number">5</span>
+            <div>
+              <h3>Expectativas</h3>
+              <p class="section-note">Para alinhar a recomendação ao resultado que mais importa agora.</p>
+            </div>
+          </div>
+
+          <div class="field" data-question="O que te impede de profissionalizar esses processos hoje?">
+            <label class="question">O que te impede de profissionalizar esses processos hoje?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="O que te impede de profissionalizar esses processos hoje?" value="Falta de tempo" required> <span>Falta de tempo</span></label>
+              <label class="option"><input type="radio" name="O que te impede de profissionalizar esses processos hoje?" value="Falta de conhecimento sobre como fazer"> <span>Falta de conhecimento sobre como fazer</span></label>
+              <label class="option"><input type="radio" name="O que te impede de profissionalizar esses processos hoje?" value="Investimento financeiro necessário"> <span>Investimento financeiro necessário</span></label>
+            </div>
+          </div>
+
+          <div class="field" data-question="Em uma mentoria, qual seria o seu objetivo número 1?">
+            <label class="question">Em uma mentoria, qual seria o seu objetivo número 1?</label>
+            <div class="options">
+              <label class="option"><input type="radio" name="Em uma mentoria, qual seria o seu objetivo número 1?" value="Aumentar o faturamento e vendas" required> <span>Aumentar o faturamento e vendas</span></label>
+              <label class="option"><input type="radio" name="Em uma mentoria, qual seria o seu objetivo número 1?" value="Organizar a casa (processos e rotina)"> <span>Organizar a casa (processos e rotina)</span></label>
+              <label class="option"><input type="radio" name="Em uma mentoria, qual seria o seu objetivo número 1?" value="Melhorar a gestão de pessoas e liderança"> <span>Melhorar a gestão de pessoas e liderança</span></label>
+            </div>
+          </div>
+        </section>
+
+        <p class="privacy-note">Ao enviar, suas respostas serão encaminhadas para a equipe Takehara Gestão IA com a finalidade de análise empresarial. Nenhuma resposta é exibida publicamente.</p>
+        <p class="notice" id="notice">Preencha todas as perguntas antes de continuar.</p>
+
+        <div class="actions">
+          <button class="btn-secondary" type="button" id="summaryButton">Resumo de resposta</button>
+          <button class="btn-primary" type="submit">Envio de respostas</button>
+        </div>
+      </form>
+
+      <section class="summary" id="summary" aria-live="polite">
+        <h2>Resumo de resposta</h2>
+        <div class="summary-list" id="summaryList"></div>
+      </section>
+    </main>
+  </div>
+
+  <section class="success-screen" id="successScreen">
+    <div class="success-box">
+      <div class="success-mark">✓</div>
+      <h2>Enviado com sucesso</h2>
+      <p>Obrigado. Suas respostas foram registradas e enviadas para análise.</p>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById("diagnosticForm");
+    const notice = document.getElementById("notice");
+    const summary = document.getElementById("summary");
+    const summaryList = document.getElementById("summaryList");
+    const formPage = document.getElementById("formPage");
+    const successScreen = document.getElementById("successScreen");
+
+    if (new URLSearchParams(window.location.search).get("enviado") === "1") {
+      formPage.style.display = "none";
+      successScreen.style.display = "grid";
+    }
+
+    function collectAnswers() {
+      return Array.from(form.querySelectorAll(".field[data-question]")).map((field) => {
+        const question = field.dataset.question;
+        const checked = field.querySelector("input[type='radio']:checked");
+        const textField = field.querySelector("input[type='text'], textarea");
+        const answer = checked ? checked.value : textField ? textField.value.trim() : "";
+        return { question, answer };
+      });
+    }
+
+    function validateForm() {
+      const valid = form.checkValidity();
+      notice.style.display = valid ? "none" : "block";
+      if (!valid) {
+        form.reportValidity();
+      }
+      return valid;
+    }
+
+    function renderSummary() {
+      if (!validateForm()) return;
+      const answers = collectAnswers();
+      summaryList.innerHTML = "";
+
+      answers.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "summary-item";
+        row.innerHTML = `
+          <p class="summary-question"></p>
+          <p class="summary-answer"></p>
+        `;
+        row.querySelector(".summary-question").textContent = item.question;
+        row.querySelector(".summary-answer").textContent = item.answer || "Sem resposta";
+        summaryList.appendChild(row);
+      });
+
+      summary.style.display = "block";
+      summary.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.getElementById("summaryButton").addEventListener("click", renderSummary);
+  </script>
+</body>
+</html>
